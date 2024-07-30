@@ -1,30 +1,62 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="game">
+    <div id="header-component">
+      <div><label id="score">95</label></div>
+      <div><button>GO</button></div>
+      <div><label id="timer">66</label></div>
+      
+
+    </div>
+    <div id="game-component">
+      Game Grid
+      <div id="GameGridComponent">
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+        <button>&nbsp;</button>
+
+      </div>
+    </div>
+
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#game {
+  border: 1px black solid;
+  background-color: lightgray;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+#header-component {
+  border-bottom: 1px black solid;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px;
+  button {
+    background-color: yellow;
+  }
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+
+#game-component {
+  flex: auto;
+  button {
+    border: 2px outset gray;
+    border-radius: 0px;
+    background-color: lightgray;
+  }
+  button:hover {
+    background-color:gray;
+  }
 }
 </style>
