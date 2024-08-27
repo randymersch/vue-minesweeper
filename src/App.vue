@@ -1,32 +1,38 @@
 <script setup>
-import HelloWorld from "./components/HelloWorld.vue";
+import MineHeader from './components/MineHeader.vue';
+import MineTiles from './components/MineTiles.vue';
 </script>
+
+<script>
+// enum gameStatus = Initial, Started, Ended
+//tile {
+// enum tileStatus = initial, visible
+// coordinates
+// boolean isBomb || enum tileType = [bomb, neutral, [?]] try calculating all
+//  y > 0    [[x - 1, y + 1], [x, y + 1], [x + 1, y + 1]]
+//           [[x - 1,   y  ],     C     , [x + 1,   y  ]]
+//  y < h    [[x - 1, y - 1], [x, y - 1], [x + 1, y - 1]]
+//}
+
+export default {
+  components: {
+    MineHeader,
+    MineTiles
+  },
+  data: () => ({
+    gameState:[]
+  })
+}
+
+</script>
+
+
+
 
 <template>
   <div id="game">
-    <div id="header-component">
-      <div><label id="score">95</label></div>
-      <div><button>GO</button></div>
-      <div><label id="timer">66</label></div>
-      
-
-    </div>
-    <div id="game-component">
-      Game Grid
-      <div id="GameGridComponent">
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-
-      </div>
-    </div>
-
+   <MineHeader :gameState="gameState"/>
+   <MineTiles :gameState="gameState" />
   </div>
 </template>
 
@@ -35,28 +41,5 @@ import HelloWorld from "./components/HelloWorld.vue";
   border: 1px black solid;
   background-color: lightgray;
 }
-#header-component {
-  border-bottom: 1px black solid;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding: 15px;
-  button {
-    background-color: yellow;
-  }
-}
 
-
-#game-component {
-  flex: auto;
-  button {
-    border: 2px outset gray;
-    border-radius: 0px;
-    background-color: lightgray;
-  }
-  button:hover {
-    background-color:gray;
-  }
-}
 </style>
