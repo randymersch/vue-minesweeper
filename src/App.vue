@@ -1,6 +1,12 @@
 <script setup>
-import MineHeader from './components/MineHeader.vue';
-import MineTiles from './components/MineTiles.vue';
+import MineHeader from "./components/MineHeader.vue";
+import MineTiles from "./components/MineTiles.vue";
+import { onMounted } from "vue";
+import { TileStatus } from "./types/gameTypes";
+
+onMounted(() => {
+  console.log(`the component is now mounted.`);
+});
 </script>
 
 <script>
@@ -17,22 +23,34 @@ import MineTiles from './components/MineTiles.vue';
 export default {
   components: {
     MineHeader,
-    MineTiles
+    MineTiles,
   },
   data: () => ({
-    gameState:[]
-  })
-}
-
+    gameState: [
+      [
+        { x: 0, y: 0, isBomb: false, state: TileStatus.Initial },
+        { x: 1, y: 0, isBomb: false, state: TileStatus.Initial },
+        { x: 2, y: 0, isBomb: false, state: TileStatus.Initial },
+      ],
+      [
+        { x: 0, y: 1, isBomb: false, state: TileStatus.Initial },
+        { x: 1, y: 1, isBomb: false, state: TileStatus.Initial },
+        { x: 2, y: 1, isBomb: false, state: TileStatus.Initial },
+      ],
+      [
+        { x: 0, y: 2, isBomb: false, state: TileStatus.Initial },
+        { x: 1, y: 2, isBomb: false, state: TileStatus.Initial },
+        { x: 2, y: 2, isBomb: false, state: TileStatus.Initial },
+      ],
+    ],
+  }),
+};
 </script>
-
-
-
 
 <template>
   <div id="game">
-   <MineHeader :gameState="gameState"/>
-   <MineTiles :gameState="gameState" />
+    <MineHeader :gameState />
+    <MineTiles :gameState />
   </div>
 </template>
 
@@ -40,6 +58,7 @@ export default {
 #game {
   border: 1px black solid;
   background-color: lightgray;
+  min-width: 25vw;
+  min-height: 25vh;
 }
-
 </style>
