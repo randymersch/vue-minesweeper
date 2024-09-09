@@ -3,38 +3,35 @@ export default {
   props: {
     x: {
       type: Number,
-      required: true
+      required: true,
     },
     y: {
-        type:Number,
-        required:true
-    }
-
+      type: Number,
+      required: true,
+    },
   },
-    data: () => ({
-
-    }),
-    
-
-
-}
+  data: () => ({}),
+};
 </script>
 
 <template>
-     <button>&nbsp;{{ x }}, {{y}} </button>
+  <button>&nbsp;{{ x }}, {{ y }}</button>
 </template>
 
-
-
-
+<style scoped>
+button {
+  width: 50px;
+  height: 50px;
+}
+</style>
 
 <style scoped>
-   button {
-    border: 2px outset gray;
-    border-radius: 0px;
-    background-color: lightgray;
-  }
-  button:hover {
-    background-color:gray;
-  }
+button {
+  border: 2px outset gray;
+  border-radius: 0px;
+  background-color: lightgray;
+}
+button:hover {
+  background-color: gray;
+}
 </style>

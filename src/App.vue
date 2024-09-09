@@ -58,7 +58,7 @@ export default {
 #game {
   border: 1px black solid;
   background-color: lightgray;
-  min-width: 25vw;
+  /* min-width: 25vw; */
   min-height: 25vh;
 }
 </style>

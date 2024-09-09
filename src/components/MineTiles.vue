@@ -18,41 +18,19 @@ export default {
 <template>
   <div id="game-component">
     Game Grid
-    <div id="GameGridComponent" v-for="(xItem, x) in gameState">
-      <div v-for="(yItem, y) in xItem">
+    <div id="GameGridRow" v-for="(xItem, x) in gameState">
+      <span v-for="(yItem, y) in xItem">
         {{ console.log("Point: " + yItem.x + " " + yItem.y) }}
         <Tile v-bind:x="yItem.x" v-bind:y="yItem.y" />
-      </div>
-
-      <!-- <Tile v-bind:x="0" v-bind:y="0" />
-      <Tile v-bind:x="0" v-bind:y="0" />
-      <Tile v-bind:x="0" v-bind:y="0" />
-      <Tile v-bind:x="0" v-bind:y="0" /> -->
-      <!-- <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-<br/>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button>
-        <button>&nbsp;</button> -->
+      </span>
     </div>
   </div>
 </template>
 
 <style scoped>
 #game-component {
+  display: flex;
+  flex-direction: column;
   flex: auto;
   /* button {
     border: 2px outset gray;
@@ -62,5 +40,11 @@ export default {
   button:hover {
     background-color:gray;
   } */
+}
+
+#GameGridRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 </style>
