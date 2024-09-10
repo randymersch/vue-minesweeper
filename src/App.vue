@@ -44,13 +44,26 @@ export default {
       ],
     ],
   }),
+  methods: {
+    tileClick(props) {
+      console.log('caught ya!');
+      console.log(props);
+
+      console.log('before');
+      console.log(this.gameState[props.x, props.y].isBomb);
+      this.gameState[props.x, props.y].isBomb = true;
+      console.log('after');
+      console.log(this.gameState[props.x, props.y].isBomb);
+
+    }
+  }
 };
 </script>
 
 <template>
   <div id="game">
     <MineHeader :gameState />
-    <MineTiles :gameState />
+    <MineTiles :gameState @tile-clicked="tileClick" />
   </div>
 </template>
 

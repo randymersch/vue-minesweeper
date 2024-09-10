@@ -9,13 +9,18 @@ export default {
       type: Number,
       required: true,
     },
+    isBomb: {
+      type:Boolean,
+      default: false
+    }
   },
   data: () => ({}),
+  emits: ['tile-clicked']
 };
 </script>
 
 <template>
-  <button>&nbsp;{{ x }}, {{ y }}</button>
+  <button @click="$emit('tile-clicked', {x,y})">&nbsp;{{ isBomb ? 'B!' : '' }}</button>
 </template>
 
 <style scoped>
