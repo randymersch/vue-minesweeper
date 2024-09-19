@@ -20,7 +20,6 @@ export default {
     Game Grid
     <div id="GameGridRow" v-for="(xItem, x) in gameState">
       <span v-for="(yItem, y) in xItem">
-        {{ console.log("Point: " + yItem.x + " " + yItem.y) }}
         <Tile  v-bind:isBomb="yItem.isBomb"  v-bind:x="yItem.x" v-bind:y="yItem.y" :key="x + ',' + y"  @tile-clicked="$emit('tile-clicked',$event)" />
       </span>
     </div>

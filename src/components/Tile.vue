@@ -1,4 +1,6 @@
 <script>
+import { reactive, computed } from 'vue'
+
 export default {
   props: {
     x: {
@@ -14,13 +16,27 @@ export default {
       default: false
     }
   },
+  
   data: () => ({}),
-  emits: ['tile-clicked']
+  emits: ['tile-clicked'],
+  // computed : {
+  //   function showText() {
+  //     return '';
+  //   }
+  // }
 };
+
+// a computed ref
+const displayedText = computed(() => {
+  console.log('displayedText');
+  console.log(props.isBomb ? 'B!' : ' ');
+
+  return props.isBomb ? 'B!' : ' '
+})
 </script>
 
 <template>
-  <button @click="$emit('tile-clicked', {x,y})">&nbsp;{{ isBomb ? 'B!' : '' }}</button>
+  <button @click="$emit('tile-clicked', {x,y})">{{ displayedText }}</button>
 </template>
 
 <style scoped>

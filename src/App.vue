@@ -46,15 +46,7 @@ export default {
   }),
   methods: {
     tileClick(props) {
-      console.log('caught ya!');
-      console.log(props);
-
-      console.log('before');
-      console.log(this.gameState[props.x, props.y].isBomb);
       this.gameState[props.x, props.y].isBomb = true;
-      console.log('after');
-      console.log(this.gameState[props.x, props.y].isBomb);
-
     }
   }
 };
