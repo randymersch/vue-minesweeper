@@ -46,9 +46,11 @@ export default {
   }),
   methods: {
     tileClick(props) {
-      this.gameState[props.x, props.y].isBomb = true;
-    }
-  }
+      console.log("kaboom");
+      this.gameState[(props.x, props.y)].isBomb = true;
+      console.log(this.gameState[(props.x, props.y)].isBomb);
+    },
+  },
 };
 </script>
 

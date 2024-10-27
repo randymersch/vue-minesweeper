@@ -1,5 +1,5 @@
 <script>
-import { reactive, computed } from 'vue'
+import { reactive, computed } from "vue";
 
 export default {
   props: {
@@ -12,31 +12,33 @@ export default {
       required: true,
     },
     isBomb: {
-      type:Boolean,
-      default: false
-    }
+      type: Boolean,
+      required: true,
+    },
   },
-  
+
   data: () => ({}),
-  emits: ['tile-clicked'],
-  // computed : {
-  //   function showText() {
-  //     return '';
-  //   }
-  // }
+  computed: {
+    displayTile() {
+      console.log("doing here");
+      console.log(this.isBomb);
+      return this.isBomb ? "B!" : " ";
+    },
+  },
+  emits: ["tile-clicked"],
 };
 
 // a computed ref
-const displayedText = computed(() => {
-  console.log('displayedText');
-  console.log(props.isBomb ? 'B!' : ' ');
+// const displayedText = computed(() => {
+//   console.log("displayedText");
+//   console.log(props.isBomb ? "B!" : " ");
 
-  return props.isBomb ? 'B!' : ' '
-})
+//   return props.isBomb ? "B!" : " ";
+// });
 </script>
 
 <template>
-  <button @click="$emit('tile-clicked', {x,y})">{{ displayedText }}</button>
+  <button @click="$emit('tile-clicked', { x, y })">{{ displayTile }}</button>
 </template>
 
 <style scoped>
